@@ -241,12 +241,9 @@ def read_trigger_config(filename):
             dirty_lines.append(line)
     for line in dirty_lines:
         clean_lines.append(line.split(","))
-    # line is the list of lines that you need to parse and for which you need
-    # to build triggers
     triggerList = []
     triggerDict = {}
     for line in clean_lines:
-        print(line[1],"MMM")
         if line[1] == "TITLE":
             t1 = TitleTrigger(line[2])
             triggerDict[line[0]] = t1
