@@ -23,15 +23,18 @@ def get_permutations(sequence):
     Note: depending on your implementation, you may return the permutations in
     a different order than what is listed here.
     '''
+    """ If length of string is one then return it otherwise remove first element 
+        of the sequence and call this function again with sequence(without first element of it)
+        and put first element of the sequence into every possible places in return value.
+    """
+    
     if len(sequence) == 1 :
         return [sequence]
     else:
-        all_permutations = [] ; temp = sequence[1:] ; pop = sequence[0]
-        for comb in get_permutations(temp):
-            sub_permutations = []
+        all_permutations = []
+        for comb in get_permutations(sequence[1:]):
             for index in range(len(comb)+1):
-                sub_permutations.append(comb[:index] + pop + comb[index:])
-            all_permutations += sub_permutations
+                all_permutations.append(comb[:index] + sequence[0] + comb[index:])
     return all_permutations
 
 
@@ -46,4 +49,4 @@ if __name__ == '__main__':
 #    # Put three example test cases here (for your sanity, limit your inputs
 #    to be three characters or fewer as you will have n! permutations for a 
 #    sequence of length n)
-    print(get_permutations("123"))
+    print(get_permutations("hjk"))
