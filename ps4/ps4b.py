@@ -231,7 +231,7 @@ class CiphertextMessage(Message):
         '''
         shift_list = [] ; a_list = []
         for shift in range(27):
-            a = 0 ; shifted_message = self.apply_shift(26 - shift).lower()
+            a = 0 ; shifted_message = self.apply_shift(26 - shift)
             shifted_message_list = shifted_message.split()
             for word in shifted_message_list:
                 if is_word(self.get_valid_words,word):
@@ -260,7 +260,8 @@ if __name__ == '__main__':
 
     #TODO: best shift value and unencrypted story
     # best shift value: 12
-    # unencrypted story: 'jack florey is a mythical character created on the spur of a moment to helpcover an insufficiently
-    # planned hack. he has been registered for classes at mit twice before,but has reportedly never passed aclass. it has been the tradition of the residents of east campus
-    # to become jack florey for a few nights each year to educate incoming students in the ways, means, and ethics of hacking.'
+    # unencrypted story: 'Jack Florey is a mythical character created on the spur of a moment to helpcover an insufficiently
+    # planned hack. He has been registered for classes at MIT twice before,but has reportedly never passed aclass. It has
+    # been the tradition of the residents of East Campus to become Jack Florey for a few nights each year to educate incoming 
+    # students in the ways, means, and ethics of hacking.'
     
