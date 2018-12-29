@@ -234,16 +234,43 @@ def read_trigger_config(filename):
     # We give you the code to read in the file and eliminate blank lines and
     # comments. You don't need to know how it works for now!
     trigger_file = open(filename, 'r')
-    lines = []
+    dirty_lines = [] ; clean_lines = []
     for line in trigger_file:
         line = line.rstrip()
         if not (len(line) == 0 or line.startswith('//')):
-            lines.append(line)
-
+            dirty_lines.append(line)
+    for line in dirty_lines:
+        clean_lines.append(line.split(","))
     # line is the list of lines that you need to parse and for which you need
     # to build triggers
-
-    print(lines) # for now, print it so you see what it contains!
+    triggerList = []
+    triggerDict = {}
+    for line in clean_lines:
+        print(line[1],"MMM")
+        if line[1] == "TITLE":
+            t1 = TitleTrigger(line[2])
+            triggerDict[line[0]] = t1
+        if line[1] == "DESCRIPTION":
+            t2 = DescriptionTrigger(line[2])
+            triggerDict[line[0]] = t2
+        if line[1] == "AFTER":
+            t3 = AfterTrigger(line[2])
+            triggerDict[line[0]] = t3
+        if line[1] == "BEFORE":
+            t4 = AfterTrigger(line[2])
+            triggerDict[line[0]] = t4
+        if line[1] == "NOT":
+            t5 = NotTrigger(line[2])
+            triggerDict[line[0]] = t5
+        if line[1] == "AND":
+            t6 = AndTrigger(line[2], line[3])
+            triggerDict[line[0]] = t6
+        if line[1] == "OR":
+            t7 = OrTrigger(line[2], line[3])
+            triggerDict[line[0]] = t7
+        if line[0] == "ADD":
+            triggerList += [triggerDict[line[1]], triggerDict[line[2]]]
+    return triggerList
 
 
 
@@ -260,7 +287,9 @@ def main_thread(master):
         triggerlist = [t1, t4]
 
         # Problem 11
-        #triggerlist = read_trigger_config('triggers.txt')
+        # After implementing read_trigger_config, uncomment this line 
+
+        triggerlist = read_trigger_config('triggers.txt')
         
         # HELPER CODE - you don't need to understand this!
         # Draws the popup window that displays the filtered stories
