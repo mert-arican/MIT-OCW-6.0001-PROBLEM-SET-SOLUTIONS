@@ -184,7 +184,6 @@ class AndTrigger(Trigger):
     def evaluate(self,story):
         return self.other.evaluate(story) and self.further.evaluate(story)
 # Problem 9
-# TODO: OrTrigger
 
 class OrTrigger(Trigger):
     def __init__(self, other, further):
