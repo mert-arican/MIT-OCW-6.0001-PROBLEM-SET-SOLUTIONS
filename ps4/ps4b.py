@@ -258,5 +258,9 @@ if __name__ == '__main__':
     print(story.decrypt_message())
     #TODO: WRITE YOUR TEST CASES HERE
 
-    #TODO: best shift value and unencrypted story 
+    #TODO: best shift value and unencrypted story
+    # best shift value: 12
+    # unencrypted story: 'jack florey is a mythical character created on the spur of a moment to helpcover an insufficiently
+    # planned hack. he has been registered for classes at mit twice before,but has reportedly never passed aclass. it has been the tradition of the residents of east campus
+    # to become jack florey for a few nights each year to educate incoming students in the ways, means, and ethics of hacking.'
     
