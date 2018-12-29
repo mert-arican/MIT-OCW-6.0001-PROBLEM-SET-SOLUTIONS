@@ -91,7 +91,6 @@ class Trigger(object):
 # PHRASE TRIGGERS
 
 # Problem 2
-# TODO: PhraseTrigger
 
 class PhraseTrigger(Trigger):
     
@@ -116,7 +115,6 @@ class PhraseTrigger(Trigger):
     
 
 # Problem 3
-# TODO: TitleTrigger
 
 class TitleTrigger(PhraseTrigger):
     def __init__(self,phrase):
@@ -127,7 +125,6 @@ class TitleTrigger(PhraseTrigger):
     
 
 # Problem 4
-# TODO: DescriptionTrigger
 
 class DescriptionTrigger(PhraseTrigger):
     def __init__(self,phrase):
@@ -139,7 +136,6 @@ class DescriptionTrigger(PhraseTrigger):
 # TIME TRIGGERS
 
 # Problem 5
-# TODO: TimeTrigger
         
 class TimeTrigger(Trigger):
     def __init__(self,time):
@@ -151,7 +147,6 @@ class TimeTrigger(Trigger):
 #        Convert time from string to a datetime before saving it as an attribute.
 
 # Problem 6
-# TODO: BeforeTrigger and AfterTrigger
 
 class BeforeTrigger(TimeTrigger):
     def __init__(self,time):
@@ -172,7 +167,6 @@ class AfterTrigger(TimeTrigger):
 # COMPOSITE TRIGGERS
 
 # Problem 7
-# TODO: NotTrigger
         
 class NotTrigger(Trigger):
     def __init__(self,other):
@@ -181,7 +175,6 @@ class NotTrigger(Trigger):
     def evaluate(self,story):
         return not self.other.evaluate(story)
 # Problem 8
-# TODO: AndTrigger
 
 class AndTrigger(Trigger):
     def __init__(self,other,further):
@@ -212,8 +205,6 @@ def filter_stories(stories, triggerlist):
 
     Returns: a list of only the stories for which a trigger in triggerlist fires.
     """
-    # TODO: Problem 10
-    # This is a placeholder
     # (we're just returning all the stories, with no filtering)
     story_dict = {} ; return_list = []
     for story in stories:
@@ -249,7 +240,6 @@ def read_trigger_config(filename):
         if not (len(line) == 0 or line.startswith('//')):
             lines.append(line)
 
-    # TODO: Problem 11
     # line is the list of lines that you need to parse and for which you need
     # to build triggers
 
@@ -270,7 +260,6 @@ def main_thread(master):
         triggerlist = [t1, t4]
 
         # Problem 11
-        # TODO: After implementing read_trigger_config, uncomment this line 
         #triggerlist = read_trigger_config('triggers.txt')
         
         # HELPER CODE - you don't need to understand this!
