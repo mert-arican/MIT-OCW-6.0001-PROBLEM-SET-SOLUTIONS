@@ -30,7 +30,7 @@ while current_savings < portion_down_payment :
     current_savings += (monthly_salary * portion_saved)
     number_of_months += 1
 
-print("Number of months:", str(number_of_months))
+print("Number of months:", str(number_of_months)) 
     
 
     
